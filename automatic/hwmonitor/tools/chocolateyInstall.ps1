@@ -1,9 +1,9 @@
-﻿$ErrorActionPreference = 'Stop';
+﻿$ErrorActionPreference = 'Stop'
 
-$packageName = 'hwmonitor';
-$toolsDir   = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)";
-$installerType = 'EXE';
-$url = 'https://download.cpuid.com/hwmonitor/hwmonitor_1.47.exe';
+$packageName = 'hwmonitor'
+$toolsDir   = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
+$installerType = 'EXE'
+$url = 'https://download.cpuid.com/hwmonitor/hwmonitor_1.48.exe'
 
 $packageArgs = @{
   packageName   = $packageName
@@ -13,8 +13,8 @@ $packageArgs = @{
   silentArgs    = '/SILENT /VERYSILENT /SUPPRESSMSGBOXES /NORESTART /SP-'
   validExitCodes= @(0)
   softwareName  = '*hwmonitor*'
-  checksum      = '78d3d4cd218b5c9cf3bdba1021a6b4e93ec1d6a5afbe260bb8900221b5e3c4a6'
+  checksum      = '14fe1a1d30403cd500710c4ad1bbb222de7b8a2e94f49106e8161b625984457d'
   checksumType  = 'sha256'
-};
-Install-ChocolateyPackage @packageArgs;
+}
 
+Install-ChocolateyPackage @packageArgs;

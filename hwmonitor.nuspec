@@ -3,25 +3,28 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
     <id>hwmonitor</id>
-    <title>HWMonitor</title>
     <version>1.56.0.20250209</version>
+    <packageSourceUrl>https://github.com/brogers5/chocolatey-package-hwmonitor/tree/master/automatic/hwmonitor</packageSourceUrl>
+    <owners>IonRed, sublym0nal</owners>
+    <title>HWMonitor</title>
     <authors>CPUID</authors>
-    <owners>ionred</owners>
-    <summary>HWMonitor is a hardware monitoring program that reads PC systems main health sensors : voltages, temperatures, fans speed.</summary>
+    <projectUrl>http://www.cpuid.com/softwares/hwmonitor.html</projectUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/brogers5/chocolatey-package-hwmonitor@7ece95e61f975f243a891d9631e7b2f177240d81/hwmonitor.png</iconUrl>
+    <copyright>Copyright © CPUID - 2025</copyright>
+    <licenseUrl>http://www.cpuid.com/softwares/hwmonitor-pro/eula.html</licenseUrl>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <!--<projectSourceUrl>Project is closed-source</projectSourceUrl>-->
+    <!--<docsUrl>Minimal documentation is available at projectUrl</docsUrl>-->
+    <mailingListUrl>http://www.cpuid.com/contact.html</mailingListUrl>
+    <!--<bugTrackerUrl>No public-facing bug tracker is available</bugTrackerUrl>-->
+    <tags>admin hardware monitoring temperature sensor fan-speed heath thermal hard-drive smart gpu temps</tags>
+    <summary>Voltage, temperature, and fan speed monitoring</summary>
     <description><![CDATA[HWMonitor is a hardware monitoring program that reads PC systems main health sensors : voltages, temperatures, fans speed.
 
 The program handles the most common sensor chips, like ITE® IT87 series, most Winbond® ICs, and others. In addition, it can read modern CPUs on-die core thermal sensors, as well has hard drives temperature via S.M.A.R.T, and video card GPU temperature.
 
 Special hardware monitors such as abit® uGuru and Gigabyte® ODIN™ power supplies serie are supported too.
-]]></description>
-    <projectUrl>http://www.cpuid.com/softwares/hwmonitor.html</projectUrl>
-    <packageSourceUrl>https://github.com/ionred/chocolatey-packages/tree/master/automatic/hwmonitor</packageSourceUrl>
-    <mailingListUrl>http://www.cpuid.com/contact.html</mailingListUrl>
-    <tags>admin hardware monitoring temperature sensor fan-speed heath thermal hard-drive smart gpu temps</tags>
-    <copyright>©2001-2016</copyright>
-    <licenseUrl>http://www.cpuid.com/softwares/hwmonitor-pro/eula.html</licenseUrl>
-    <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <iconUrl>https://raw.githubusercontent.com/ionred/chocolatey-packages/master/icons/hwmonitor_icon.PNG</iconUrl>
+]]>    </description>
     <releaseNotes>http://www.cpuid.com/softwares/hwmonitor/versions-history.html</releaseNotes>
   </metadata>
   <files>

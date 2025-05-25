@@ -1,95 +1,61 @@
-# Chocolatey Packages
+<!--markdownlint-disable-next-line MD033 MD045 -->
+# <img src="https://cdn.jsdelivr.net/gh/brogers5/chocolatey-package-hwmonitor@7ece95e61f975f243a891d9631e7b2f177240d81/hwmonitor.png" width="48" height="48" alt="HWMonitor icon"/> Chocolatey Package: [HWMonitor](https://community.chocolatey.org/packages/hwmonitor)
 
-~~~
-<!-- EDIT ME-->
+[![Latest package version shield](https://img.shields.io/chocolatey/v/hwmonitor.svg)](https://community.chocolatey.org/packages/hwmonitor)
+[![Total package download count shield](https://img.shields.io/chocolatey/dt/hwmonitor.svg)](https://community.chocolatey.org/packages/hwmonitor)
 
-[![](https://ci.appveyor.com/api/projects/status/github/YOUR_GITHUB_USERNAME_HERE/chocolatey-packages?svg=true)](https://ci.appveyor.com/project/YOUR_GITHUB_USERNAME_HERE/chocolatey-packages)
-[Update status](https://gist.github.com/YOUR_GITHUB_USERNAME_HERE/YOUR_GIST_ID)
+## Install
 
-<!-- REMOVE THE squiggles "~" surrounding this (this should not be a code block) -->
-~~~
+[Install Chocolatey](https://chocolatey.org/install), and run the following command to install the latest approved stable version from the Chocolatey Community Repository:
 
-## Chocolatey Packages Template
+```shell
+choco install hwmonitor --source="'https://community.chocolatey.org/api/v2'"
+```
 
-This contains Chocolatey packages, both manually and automatically maintained.
+Alternatively, the packages as published on the Chocolatey Community Repository (starting with v1.57.0) will also be mirrored on this repository's [Releases page](https://github.com/brogers5/chocolatey-package-hwmonitor/releases). The `nupkg` can be installed from the current directory as follows:
 
-You can choose to use one or both of the different methods currently supported in the Chocolatey community for automatic packaging. They are AU (Automatic Updater) and Ketarin/ChocolateyPackageUpdater.
+```shell
+choco install hwmonitor --source="'.'"
+```
 
-### Folder Structure
+## Build
 
-* automatic - where automatic packaging and packages are kept. These are packages that are automatically maintained using either [AU](https://chocolatey.org/packages/au) or [Ketarin](https://chocolatey.org/packages/ketarin)/[ChocolateyPackageUpdater](https://chocolatey.org/packages/chocolateypackageupdater) combo.
-* icons - Where you keep icon files for the packages. This is done to reduce issues when packages themselves move around.
-* ketarin - where ketarin jobs (aka applications or searches) exported as XML are kept. This is done to allow ease of contribution.
-* manual - where packages that are not automatic are kept.
-* ops - scripts, jobs, and other items for ensuring automatic packaging.
-* setup - items for prepping the system to ensure for auto packaging.
+[Install Chocolatey](https://chocolatey.org/install), clone this repository, and run the following command in the cloned repository:
 
-For setting up your own automatic package repository, please see [Automatic Packaging](https://chocolatey.org/docs/automatic-packages)
+```shell
+choco pack
+```
 
-### Requirements
+A successful build will create `hwmonitor.x.y.z.nupkg`, where `x.y.z` should be the Nuspec's normalized `version` value at build time.
 
-* Chocolatey (choco.exe)
+>[!Note]
+>Chocolatey package builds are non-deterministic. Consequently, an independently built package's checksum will not match that of the officially published package.
 
-#### Ketarin / ChocolateyPackageUpdater
+## Update
 
-* PowerShell v2+
-* [Ketarin](https://chocolatey.org/packages/ketarin)
-* [Chocolatey Package Updater](https://chocolatey.org/packages/chocolateypackageupdater)
-* A Windows box somewhere - to run the updater on - appveyor can't work until the import of the settings can be automated
+This package should be automatically updated by the [Chocolatey Automatic Package Updater Module](https://github.com/majkinetor/au). If it is outdated by more than a few days, please [open an issue](https://github.com/brogers5/chocolatey-package-hwmonitor/issues).
 
-#### AU
+AU expects the parent directory that contains this repository to share a name with the Nuspec (`hwmonitor`). Your local repository should therefore be cloned accordingly:
 
-* PowerShell v5+.
-* The [AU module](https://chocolatey.org/packages/au).
+```shell
+git clone git@github.com:brogers5/chocolatey-package-hwmonitor.git hwmonitor
+```
 
-For daily operations check out the AU packages [template README](https://github.com/majkinetor/au-packages-template/blob/master/README.md).
+Alternatively, a junction point can be created that points to the local repository (preferably within a repository adopting the [AU packages template](https://github.com/majkinetor/au-packages-template)):
 
-### Getting started
+```shell
+mklink /J hwmonitor ..\chocolatey-package-hwmonitor
+```
 
-1. Fork this repository and rename it to `chocolatey-packages` (on GitHub - go into Settings, Repository name and rename).
-1. Clone the repository locally.
-1. Head into the `setup` folder and perform the proper steps for your choice of setup (or both if you plan to use both methods).
-1. Edit this README. Update the badges at the top.
+Once created, simply run `update.ps1` from within the created directory/junction point. Assuming all goes well, all relevant files should change to reflect the latest version available. This will also build a new package version using the modified files.
 
+To forcibly create an updated package (regardless of whether a new software version or package is available), pass the `-Force` switch:
 
-### Recommendation on Auto Packaging
+```powershell
+.\update.ps1 -Force
+```
 
-AU provides more in the process of being completely automated, sending emails when things go wrong, and providing a nice report at the end. It doesn't have a bolt-on feeling to it that you see with Ketarin / ChocolateyPackageUdater, however the one thing it does lack in comparison is no visual feedback to seeing how searches for installers may be found. Other than that, it provides errors when things go wrong, where Ketarin doesn't consider anything that happens during "before run"/"post run updates" (where chocopkgup and checksumming occur) to be an error, even if those scripts error.
+>[!Note]
+>The update script stores the last [`ETag`](https://developer.mozilla.org/docs/Web/HTTP/Headers/ETag) value served with the download, in order to detect possible silent updates (which would require a new package to update the version of the dependent installer package). If a new value is detected, package updates will be forced, even if `-Force` was not passed.
 
-So for best visibility, enjoying the ease of using AppVeyor, and for a nice report of results, we recommend AU over Ketarin. You also don't need to deal with templates as AU works directly with the xml/ps1 files to do replacement.
-
-### Adapting your current source repository to this source repository template
-
-You want to bring in all of your packages into the proper folders. We suggest using some sort of diffing tool to look at the differences between your current solution and this solution and then making adjustments to it. Pay special attention to the setup folder.
-
-1. Bring over the following files to your package source repository:
- * `automatic\README.md`
- * `icons\README.md`
- * `ketarin\README.md`
- * `ketarin\_KetarinChocolateyTemplate.xml`
- * `manual\README.md`
- * `ops\*.*`
- * `setup\*.*`
- * `.appveyor.yml`
-1. Inspect the following file and add the differences:
- * `.gitignore`
-
-### Use Both Methodologies
-
-The way this source repository is designed, you can use both AU and Ketarin/ChocolateyPackageUpdater together. This is especially helpful when migrating existing packages from one methodology to the other.
-
-### Migrating existing Ketarin packages to AU
-
-1. Add an update.ps1 to the package folder and determine how to update the package using [AU's instructions](https://github.com/majkinetor/au#creating-the-package-updater-script).
-1. Remove the ketarin.xml file from the ketarin folder.
-1. Ensure you also remove the package job from Ketarin itself as it doesn't automatically remove.
-
-### Special Notes
-
-#### Ketarin
-
-* In `Settings -> Global variables` the variable `autoPackagesFolder` is used to determine where your automatic packages are. It doesn't matter what `chocopkgup` is using, this folder is passed through. Ensure this is set appropriately.
-* In `Settings -> Global variables` the variable `saveDir` is used to determine where to save the downloaded files from Ketarin. Please ensure the folder exists.
-* In `Settings -> Global variables` the variable `nopush` is set to `--nopush`, which allows checksum calculations to occur and then a custom script will push the files.
-* In `Settings -> Global variables` the variable `cscript` is set to `2`, which means calculate checksums, rebuild, and push the packages. If you set this to `1` it will do everything except push the packages. Setting this to `1` is how you disable package pushing.
-* In `Settings -> Global variables` the variable `checksum` is set to `{checksum}`. Do not change this, this is how the post update script replaces the literal value `{checksum}`. The same goes for `checksumx64`, `packageGuid`, and `url64`.
+Before submitting a pull request, please [test the package](https://docs.chocolatey.org/en-us/community-repository/moderation/package-verifier#steps-for-each-package) using the [Chocolatey Testing Environment](https://github.com/chocolatey-community/chocolatey-test-environment) first.

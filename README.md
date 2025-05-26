@@ -4,6 +4,17 @@
 [![Latest package version shield](https://img.shields.io/chocolatey/v/hwmonitor.svg)](https://community.chocolatey.org/packages/hwmonitor)
 [![Total package download count shield](https://img.shields.io/chocolatey/dt/hwmonitor.svg)](https://community.chocolatey.org/packages/hwmonitor)
 
+---
+
+This package is part of a family of packages published for HWMonitor. This repository is for the meta package.
+
+* For the installer package, see [chocolatey-package-hwmonitor.install](https://github.com/brogers5/chocolatey-package-hwmonitor.install).
+* For the portable package, see [chocolatey-package-hwmonitor.portable](https://github.com/brogers5/chocolatey-package-hwmonitor.portable).
+
+See the [Chocolatey FAQs](https://docs.chocolatey.org/en-us/faqs) for more information on [meta packages](https://docs.chocolatey.org/en-us/faqs/#what-is-the-difference-between-packages-no-suffix-as-compared-to-install-portable) and [installer/portable packages](https://docs.chocolatey.org/en-us/faqs#what-distinction-does-chocolatey-make-between-an-installable-and-a-portable-application).
+
+---
+
 ## Install
 
 [Install Chocolatey](https://chocolatey.org/install), and run the following command to install the latest approved stable version from the Chocolatey Community Repository:

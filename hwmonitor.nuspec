@@ -8,14 +8,14 @@
     <owners>IonRed, sublym0nal</owners>
     <title>HWMonitor</title>
     <authors>CPUID</authors>
-    <projectUrl>http://www.cpuid.com/softwares/hwmonitor.html</projectUrl>
+    <projectUrl>https://www.cpuid.com/softwares/hwmonitor.html</projectUrl>
     <iconUrl>https://cdn.jsdelivr.net/gh/brogers5/chocolatey-package-hwmonitor@7ece95e61f975f243a891d9631e7b2f177240d81/hwmonitor.png</iconUrl>
     <copyright>Copyright © CPUID - 2025</copyright>
-    <licenseUrl>http://www.cpuid.com/softwares/hwmonitor-pro/eula.html</licenseUrl>
+    <licenseUrl>https://www.cpuid.com/softwares/hwmonitor-pro/eula.html</licenseUrl>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
     <!--<projectSourceUrl>Project is closed-source</projectSourceUrl>-->
     <!--<docsUrl>Minimal documentation is available at projectUrl</docsUrl>-->
-    <mailingListUrl>http://www.cpuid.com/contact.html</mailingListUrl>
+    <mailingListUrl>https://www.cpuid.com/contact.html</mailingListUrl>
     <!--<bugTrackerUrl>No public-facing bug tracker is available</bugTrackerUrl>-->
     <tags>admin hardware monitoring temperature sensor fan-speed heath thermal hard-drive smart gpu temps</tags>
     <summary>Voltage, temperature, and fan speed monitoring</summary>
@@ -49,8 +49,8 @@ HWMonitor is a hardware monitoring program that aggregates several data points f
 - Network adapters (physical or virtual)
 - Laptop batteries
 - Uninterruptible Power Supplies (UPS)
-]]>    </description>
-    <releaseNotes>http://www.cpuid.com/softwares/hwmonitor/versions-history.html</releaseNotes>
+]]></description>
+    <releaseNotes>https://www.cpuid.com/softwares/hwmonitor/versions-history.html</releaseNotes>
     <dependencies>
       <dependency id="hwmonitor.install" version="[1.57.0]" />
     </dependencies>

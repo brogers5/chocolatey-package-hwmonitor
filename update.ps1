@@ -21,7 +21,7 @@ function global:au_GetLatest {
     $page = Invoke-WebRequest -Uri $projectUri -UserAgent $userAgent -UseBasicParsing
 
     $url = (($page.Links | Where-Object href -Match '/downloads/.*.exe$' | Select-Object -First 1 -Expand href) | ForEach-Object { $_ -replace 'http://www.cpuid.com/downloads', '' -replace '/downloads', '' } | ForEach-Object { "https://download.cpuid.com$_" })
-    $version = $url -replace '.exe', '' -split '_' | Select-Object -Last 1
+    $version = Get-Version -Version $url
 
     $headRequest = Invoke-WebRequest -Uri $url -Method Head -UserAgent $userAgent
     $currentETagValue = $headRequest.Headers['ETag']

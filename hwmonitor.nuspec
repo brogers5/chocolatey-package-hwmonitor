@@ -3,8 +3,8 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>hwmonitor</id>
-    <version>1.57.0</version>
-    <packageSourceUrl>https://github.com/brogers5/chocolatey-package-hwmonitor/tree/v1.57.0</packageSourceUrl>
+    <version>1.58.0</version>
+    <packageSourceUrl>https://github.com/brogers5/chocolatey-package-hwmonitor/tree/v1.58.0</packageSourceUrl>
     <owners>IonRed, sublym0nal</owners>
     <title>HWMonitor</title>
     <authors>CPUID</authors>
@@ -49,10 +49,10 @@ HWMonitor is a hardware monitoring program that aggregates several data points f
 - Network adapters (physical or virtual)
 - Laptop batteries
 - Uninterruptible Power Supplies (UPS)
-]]>    </description>
+]]></description>
     <releaseNotes>https://www.cpuid.com/softwares/hwmonitor/versions-history.html</releaseNotes>
     <dependencies>
-      <dependency id="hwmonitor.install" version="[1.57.0]" />
+      <dependency id="hwmonitor.install" version="[1.58.0]" />
     </dependencies>
   </metadata>
   <files />
